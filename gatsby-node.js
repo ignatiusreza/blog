@@ -11,13 +11,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = createFilePath({ node, getNode, basePath: "articles" })
+    const path = createFilePath({ node, getNode, basePath: "articles" })
 
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/articles${slug}`,
-    })
+    if (path === "/draft/") {
+      createNodeField({ node, name: "slug", value: "draft" })
+    } else {
+      const [_, year, month, day, slug] = path.split("/")
+      const date = `${year}-${month}-${day}`
+
+      createNodeField({ node, name: "date", value: date })
+      createNodeField({ node, name: "slug", value: slug })
+      createNodeField({ node, name: "path", value: `/articles/${slug}` })
+    }
   }
 }
 
@@ -29,12 +34,13 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
+        filter: { fields: { slug: { ne: "draft" } } }
+        sort: { order: DESC, fields: fields___date }
       ) {
         edges {
           node {
             fields {
+              path
               slug
             }
           }
@@ -48,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.fields.slug,
+        path: node.fields.path,
         component: Article,
         context: { slug: node.fields.slug },
       })

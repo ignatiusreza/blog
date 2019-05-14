@@ -16,9 +16,9 @@ const BlogPage = ({ data }) => {
             <h2>{post.node.frontmatter.title}</h2>
             <p>{post.node.frontmatter.date}</p>
             <div>
-              <p>{post.node.excerpt}></p>
+              <p>{post.node.frontmatter.description}</p>
             </div>
-            <Link to={post.node.fields.slug}>Read More</Link>
+            <Link to={post.node.fields.path}>Read More</Link>
           </div>
         ))}
       </div>
@@ -31,17 +31,22 @@ export default BlogPage
 // Get all markdown data, in descending order by date, and grab the id, excerpt, slug, date, and title
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      filter: { fields: { slug: { ne: "draft" } } }
+      sort: { order: DESC, fields: fields___date }
+    ) {
       edges {
         node {
           id
           excerpt(pruneLength: 250)
           fields {
+            date
+            path
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
+            description
           }
         }
       }

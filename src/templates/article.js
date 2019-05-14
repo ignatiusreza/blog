@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react"
+import { graphql } from "gatsby"
 
-import Layout from '../components/layout';
+import Layout from "../components/layout"
 
 const PostTemplate = ({ data }) => {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
   return (
     <Layout>
       <section>
@@ -16,19 +16,21 @@ const PostTemplate = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </section>
     </Layout>
-  );
-};
+  )
+}
 
-export default PostTemplate;
+export default PostTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        date
+      }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
       }
     }
   }
-`;
+`
