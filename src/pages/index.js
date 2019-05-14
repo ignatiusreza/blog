@@ -1,21 +1,50 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const BlogPage = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges
 
-export default IndexPage
+  return (
+    <Layout>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <div>
+        {posts.map(post => (
+          <div key={post.node.id}>
+            <h2>{post.node.frontmatter.title}</h2>
+            <p>{post.node.frontmatter.date}</p>
+            <div>
+              <p>{post.node.excerpt}></p>
+            </div>
+            <Link to={post.node.fields.slug}>Read More</Link>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+
+export default BlogPage
+
+// Get all markdown data, in descending order by date, and grab the id, excerpt, slug, date, and title
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    }
+  }
+`
