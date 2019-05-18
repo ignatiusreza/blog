@@ -4,24 +4,24 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
-    const path = createFilePath({ node, getNode, basePath: "articles" })
+  if (node.internal.type === 'MarkdownRemark') {
+    const path = createFilePath({ node, getNode, basePath: 'articles' })
 
-    if (path === "/draft/") {
-      createNodeField({ node, name: "slug", value: "draft" })
+    if (path === '/draft/') {
+      createNodeField({ node, name: 'slug', value: 'draft' })
     } else {
-      const [_, year, month, day, slug] = path.split("/")
+      const [_, year, month, day, slug] = path.split('/')
       const date = `${year}-${month}-${day}`
 
-      createNodeField({ node, name: "date", value: date })
-      createNodeField({ node, name: "slug", value: slug })
-      createNodeField({ node, name: "path", value: `/articles/${slug}` })
+      createNodeField({ node, name: 'date', value: date })
+      createNodeField({ node, name: 'slug', value: slug })
+      createNodeField({ node, name: 'path', value: `/articles/${slug}` })
     }
   }
 }
@@ -29,7 +29,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const Article = path.resolve("src/templates/article.js")
+  const Article = path.resolve('src/templates/article.js')
 
   return graphql(`
     {
