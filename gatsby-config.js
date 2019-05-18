@@ -1,5 +1,6 @@
 const config = {
   siteMetadata: {
+    siteUrl: 'https://erauqssidlroweht.com',
     title: '□ A Rather Perpendicular View',
     description:
       'Personal blog/playground of Ignatius Reza. Learn something about everything, and everything about something.',
@@ -28,6 +29,49 @@ const config = {
       options: {
         name: 'markdown-pages',
         path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(edge => ({
+                ...edge.node.frontmatter,
+                date: edge.node.fields.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.path,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.path,
+              })),
+            query: `
+              {
+                site {
+                  siteMetadata {
+                    siteUrl
+                  }
+                }
+                allMarkdownRemark(
+                  filter: { fields: { slug: { ne: "draft" } } }
+                  sort: { order: DESC, fields: fields___date }
+                ) {
+                  edges {
+                    node {
+                      fields {
+                        date
+                        path
+                      }
+                      frontmatter {
+                        title
+                        description
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/articles.atom',
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

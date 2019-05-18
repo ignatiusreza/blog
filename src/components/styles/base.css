@@ -32,11 +32,7 @@ a {
 }
 
 .footer {
-  @apply text-center py-4;
-
-  @screen md {
-    @apply text-left;
-  }
+  @apply flex justify-between;
 }
 
 .article {
