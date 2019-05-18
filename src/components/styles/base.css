@@ -1,3 +1,11 @@
+a {
+  @apply underline;
+
+  &:hover {
+    @apply no-underline;
+  }
+}
+
 .container {
   @apply w-full max-w-full;
 
@@ -91,10 +99,6 @@
     & p + ol {
       @apply -mt-6;
     }
-  }
-
-  & a {
-    @apply underline;
   }
 
   & .language-text {
