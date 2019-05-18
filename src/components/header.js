@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 
 import SiteContext from './context';
+import ThemeSwitcher from './theme_switcher';
 
 const Header = () => {
   const { title } = useContext(SiteContext);
@@ -11,6 +12,8 @@ const Header = () => {
       <h1>
         <Link to="/">{title}</Link>
       </h1>
+
+      <ThemeSwitcher />
     </header>
   );
 };

@@ -1,44 +1,48 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import Cookies from 'js-cookie';
 
 import SiteContext from './context';
 import Header from './header';
 import Footer from './footer';
 import './layout.css';
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
+const Layout = ({ children }) => {
+  const [theme, setTheme] = useState(Cookies.get('theme') || 'dark');
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              description
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <div className="container container-dark">
-        <div>
-          <SiteContext.Provider value={data.site.siteMetadata}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </SiteContext.Provider>
-        </div>
-      </div>
-    )}
-  />
-);
+      `}
+      render={data => (
+        <SiteContext.Provider
+          value={{ ...data.site.siteMetadata, theme, setTheme }}
+        >
+          <div
+            className={`container ${
+              theme === 'dark' ? 'container-dark' : 'container-light'
+            }`}
+          >
+            <div>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
+          </div>
+        </SiteContext.Provider>
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

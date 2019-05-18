@@ -7,10 +7,19 @@
 }
 
 .header {
-  @apply text-xl py-8 font-medium;
+  @apply text-xl py-8 font-medium flex justify-between;
 
   &:first-letter {
     @apply text-2xl;
+  }
+
+  & .switch {
+    @apply text-base;
+    line-height: 28px;
+  }
+
+  & .react-switch-bg {
+    @apply text-center;
   }
 }
 
