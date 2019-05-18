@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: '□ A Rather Perpendicular View',
     description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+      'Personal blog/playground of Ignatius Reza. Learn something about everything, and everything about something.',
+    author: '@ignatiusreza',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -29,7 +29,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-prismjs'],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

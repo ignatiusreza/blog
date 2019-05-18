@@ -1,25 +1,36 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from '../components/layout'
+import Author from '../components/author';
+import Date from '../components/date';
+import Layout from '../components/layout';
 
 const PostTemplate = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data;
+  const { fields, frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <section>
-        <div>
-          <h1>{frontmatter.title}</h1>
-          <span>{frontmatter.date}</span>
+      <section className="article flex-wrap">
+        <div className="article-date mt-2">
+          <Date date={fields.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </section>
-    </Layout>
-  )
-}
 
-export default PostTemplate
+        <h1 className="article-title text-3xl md:text-4xl md:-mt-px">
+          {frontmatter.title}
+        </h1>
+
+        <div
+          className="article-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </section>
+
+      <Author />
+    </Layout>
+  );
+};
+
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -33,4 +44,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
