@@ -1,0 +1,3 @@
+.container-light {
+  @apply bg-white text-gray-900;
+}
