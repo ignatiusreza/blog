@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Author from '../components/author'
 import Date from '../components/date'
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const PostTemplate = ({ data }) => {
   const { page, prevPage, nextPage } = data
@@ -11,6 +12,12 @@ const PostTemplate = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description}
+        keywords={frontmatter.keywords}
+      />
+
       <section className="article flex-wrap">
         <div className="article-date mt-2">
           <Date date={fields.date} />
@@ -59,6 +66,8 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        description
+        keywords
       }
     }
     prevPage: markdownRemark(fields: { slug: { eq: $prevSlug } }) {
