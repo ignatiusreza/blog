@@ -1,20 +1,20 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Articles from '../components/articles';
-import Author from '../components/author';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Articles from '../components/articles'
+import Author from '../components/author'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-const BlogPage = ({ data }) => (
+const Home = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords="blog, gatsby, rails, react" />
     <Author />
     <Articles articles={data.allMarkdownRemark.edges} />
   </Layout>
-);
+)
 
-export default BlogPage;
+export default Home
 
 // Get all markdown data, in descending order by date, and grab the id, excerpt, slug, date, and title
 export const pageQuery = graphql`
@@ -40,4 +40,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
