@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   siteMetadata: {
     title: '□ A Rather Perpendicular View',
     description:
@@ -47,3 +47,14 @@ module.exports = {
     // 'gatsby-plugin-offline',
   ],
 }
+
+if (process.env.UA_ID) {
+  config.plugins.push({
+    resolve: 'gatsby-plugin-google-analytics',
+    options: {
+      trackingId: process.env.UA_ID,
+    },
+  })
+}
+
+module.exports = config
