@@ -52,12 +52,18 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.path,
-        component: Article,
-        context: { slug: node.fields.slug },
-      })
+    const { edges } = result.data.allMarkdownRemark
+
+    edges.forEach(({ node }, index) => {
+      const prevNode = edges[index + 1]
+      const nextNode = edges[index - 1]
+      const context = {
+        slug: node.fields.slug,
+        prevSlug: prevNode && prevNode.node.fields.slug,
+        nextSlug: nextNode && nextNode.node.fields.slug,
+      }
+
+      createPage({ path: node.fields.path, component: Article, context })
     })
   })
 }
