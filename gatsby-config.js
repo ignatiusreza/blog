@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-prismjs'],
+        plugins: ['gatsby-remark-prismjs', 'gatsby-remark-external-links'],
       },
     },
     {
@@ -46,4 +46,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],
-};
+}
