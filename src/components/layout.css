@@ -1,9 +1,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+/* purgecss start ignore */
 @import './styles/base';
 @import './styles/dark';
 @import './styles/light';
+/* purgecss end ignore */
 @import 'tailwindcss/utilities';
+/* purgecss start ignore */
 @import './styles/utilities';
 
 @import 'prismjs/themes/prism-tomorrow.css';
+/* purgecss end ignore */

@@ -19,6 +19,12 @@ const config = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: ['gatsby-remark-prismjs', 'gatsby-remark-external-links'],
