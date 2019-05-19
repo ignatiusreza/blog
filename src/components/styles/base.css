@@ -52,7 +52,7 @@ a {
 }
 
 .article-title {
-  @apply font-bold text-2xl leading-snug;
+  @apply font-bold text-2xl leading-snug no-underline;
   max-width: calc(100% - 60px);
 }
 
