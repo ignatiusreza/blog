@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 const Author = () => {
@@ -24,15 +24,17 @@ const Author = () => {
         className="w-10 md:w-16 mt-1 md:mt-0 flex-none rounded-full"
       />
       <div className="ml-5">
-        <div className="font-bold text-xl">Ignatius Reza</div>
+        <div>
+          <div className="font-bold text-xl sm:inline">Ignatius Reza</div>
+          <span className="hidden sm:inline"> - </span>
+          <Link to="/now">See what I'm doing right now</Link>
+        </div>
         <p className="whitespace-pre-wrap">
-          This site is my personal blog/playground.
-          <br />
-          Learn something about everything and everything about something.
+          This is my personal blog/playground.
         </p>
 
         <div>
-          Find me on:
+          Find me:
           <ul className="inline">
             <li className="inline ml-2">
               <a
@@ -44,7 +46,7 @@ const Author = () => {
                 GitHub
               </a>
             </li>
-            <li className="inline ml-3">
+            <li className="inline ml-2">
               <a
                 href="https://www.facebook.com/ignatius.reza"
                 className="underline"
@@ -54,7 +56,7 @@ const Author = () => {
                 Facebook
               </a>
             </li>
-            <li className="inline ml-3">
+            <li className="inline ml-2">
               <a
                 href="http://id.linkedin.com/in/ignatiusreza"
                 className="underline"

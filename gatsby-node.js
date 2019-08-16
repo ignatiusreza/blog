@@ -13,8 +13,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const path = createFilePath({ node, getNode, basePath: 'articles' })
 
-    if (path === '/draft/') {
-      createNodeField({ node, name: 'slug', value: 'draft' })
+    if (/^\/(draft|now)\/$/.test(path)) {
+      createNodeField({ node, name: 'slug', value: path.split('/')[1] })
     } else {
       const [_, year, month, day, slug] = path.split('/')
       const date = `${year}-${month}-${day}`
@@ -26,7 +26,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = params =>
+  Promise.all([createArticles(params), createNow(params)])
+
+function createArticles({ actions, graphql }) {
   const { createPage } = actions
 
   const Article = path.resolve('src/templates/article.js')
@@ -34,7 +37,7 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
-        filter: { fields: { slug: { ne: "draft" } } }
+        filter: { fields: { date: { ne: null } } }
         sort: { order: DESC, fields: fields___date }
       ) {
         edges {
@@ -65,5 +68,34 @@ exports.createPages = ({ actions, graphql }) => {
 
       createPage({ path: node.fields.path, component: Article, context })
     })
+  })
+}
+
+function createNow({ actions, graphql }) {
+  const { createPage } = actions
+
+  const Now = path.resolve('src/templates/now.js')
+
+  return graphql(`
+    {
+      markdownRemark(fields: { slug: { eq: "now" } }) {
+        fields {
+          path
+          slug
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    const { fields } = result.data.markdownRemark
+
+    const context = {
+      slug: fields.slug,
+    }
+
+    createPage({ path: '/now', component: Now, context })
   })
 }

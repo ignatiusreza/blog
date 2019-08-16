@@ -20,7 +20,7 @@ export default Home
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { slug: { ne: "draft" } } }
+      filter: { fields: { date: { ne: null } } }
       sort: { order: DESC, fields: fields___date }
     ) {
       edges {

@@ -1,7 +1,7 @@
 const config = {
   siteMetadata: {
     siteUrl: 'https://erauqssidlroweht.com',
-    title: '□ A Rather Perpendicular View',
+    title: 'A Rather Perpendicular View',
     description:
       'Personal blog/playground of Ignatius Reza. Learn something about everything, and everything about something.',
     author: '@ignatiusreza',
@@ -27,7 +27,11 @@ const config = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-prismjs', 'gatsby-remark-external-links'],
+        plugins: [
+          'gatsby-remark-emoji',
+          'gatsby-remark-external-links',
+          'gatsby-remark-prismjs',
+        ],
       },
     },
     {
@@ -57,7 +61,7 @@ const config = {
                   }
                 }
                 allMarkdownRemark(
-                  filter: { fields: { slug: { ne: "draft" } } }
+                  filter: { fields: { date: { ne: null } } }
                   sort: { order: DESC, fields: fields___date }
                 ) {
                   edges {
