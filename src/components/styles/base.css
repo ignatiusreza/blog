@@ -95,6 +95,10 @@ a {
     & p + ol {
       @apply -mt-6;
     }
+
+    & p:first-child + p {
+      @apply -mt-6;
+    }
   }
 
   & .language-text {
