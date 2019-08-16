@@ -1,7 +1,7 @@
 const config = {
   siteMetadata: {
     siteUrl: 'https://erauqssidlroweht.com',
-    title: '□ A Rather Perpendicular View',
+    title: 'A Rather Perpendicular View',
     description:
       'Personal blog/playground of Ignatius Reza. Learn something about everything, and everything about something.',
     author: '@ignatiusreza',

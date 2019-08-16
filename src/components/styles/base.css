@@ -7,7 +7,7 @@ a {
 }
 
 .container {
-  @apply w-full max-w-full;
+  @apply w-full max-w-full min-h-screen;
 
   & > div {
     @apply max-w-3xl mx-auto px-4;
@@ -32,7 +32,7 @@ a {
 }
 
 .footer {
-  @apply flex justify-between;
+  @apply flex justify-between items-center;
 }
 
 .article {
