@@ -27,7 +27,11 @@ const config = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-prismjs', 'gatsby-remark-external-links'],
+        plugins: [
+          'gatsby-remark-emoji',
+          'gatsby-remark-external-links',
+          'gatsby-remark-prismjs',
+        ],
       },
     },
     {
