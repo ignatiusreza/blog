@@ -6,7 +6,7 @@ import Date from '../components/date'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const PostTemplate = ({ data }) => {
+const ArticleTemplate = ({ data }) => {
   const { page, prevPage, nextPage } = data
   const { fields, frontmatter, html } = page
 
@@ -55,7 +55,7 @@ const PostTemplate = ({ data }) => {
   )
 }
 
-export default PostTemplate
+export default ArticleTemplate
 
 export const pageQuery = graphql`
   query($slug: String!, $prevSlug: String, $nextSlug: String) {
