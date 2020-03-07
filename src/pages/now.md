@@ -5,23 +5,17 @@ description: What I'm doing now
 tags:
 ---
 
-### I'm building something
+### We moved to Berlin, Germany!
 
-Sustainability is a major question in open source, and I want to help find the answer somehow. I think, one reason why it is so hard to answer is how open source (anything on the internet for that matter) appear to be faceless. What we see when interacting with open source are code and text, instead of people. I want to build something which may help bring the people side of it up front.
+We're lucky to have found [Labforward](https://www.labforward.io/), The company is working on making scientist life in the laboratory a joy. I joined the [Laboperator](https://www.laboperator.com/) team, which are working on a plug & play solution to connect all your lab instruments in a single platform. This include automatic data collections and device automation (IOT).
 
-In short, I'm building a set of tools which would help analyze project's dependencies and return the list of people who help in making the project possible. What would this list be good for? To be honest, I'm not sure. At the very least, it helps turning your dependencies from "packages" to "people". But, what good will it bring to the maintainer? Will it help them fund their work? will it help bring in contributors? I don't know. I guess, I'll figure that part out later once it is build. :grin:
+I've always have some invested interest in science. While not a scientist myself, working on product which potentially could help them working more effectively and efficiently is a joy. Who knows, maybe one they, on of our clients will stumble into some amazing discovery or some life will be saved. Knowing that I'm involved in at least some part of that journey is exciting.
 
-### We're looking to move
+### My side projects
 
-I've been living in Japan for more than 5 years, and now I'm ready to move somewhere else.
+During my sabbatical, I've started working on a project's dependencies analyzer tools, code name [s12y](https://github.com/ignatiusreza/s12y) -- Sustainability. So far, it works as a prove of concept, but there are still a lot of works need to be done to make it at least a minimum viable product. Once things quite down a little, I would love to continue working on it. So far, at the very least, the project has served as a good environment for me to learn Elixir/Phoenix and Elm.
 
-I'm particularly interested in moving to somewhere in Europe. So, if you're working for European company and is looking for help, feel free to contact me. Note that I do have several preferences:
-
-- I've been working with Rails and Javascript (jQuery, React) for most of my professional years, but, I'm also highly interested in extending my skill set to include Elixir, Elm, and Rust
-
-- I love working with open source, and I want to continue contributing to open source in some shape or form
-
-- Sustainability is a must, I love what I'm doing, so as much as possible, I want to avoid getting burn out
+Other than that, I'm still interested in learning some rust, especially in relation to WebAssembly via Parcel. I think, I'll try to write an emulator or two, with the catch that the same code base should be runable both as a terminal application and web application.
 
 ### Should I write a book or two?
 
