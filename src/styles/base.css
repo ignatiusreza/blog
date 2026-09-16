@@ -1,0 +1,23 @@
+@layer base {
+  /* The theme is set on <html> by the inline script in gatsby-ssr.js, so the
+     colours are in place before the first paint and before React hydrates. */
+  html[data-theme='dark'] {
+    @apply bg-black text-white;
+  }
+
+  html[data-theme='light'] {
+    @apply bg-white text-gray-900;
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  a {
+    @apply underline;
+
+    &:hover {
+      @apply no-underline;
+    }
+  }
+}

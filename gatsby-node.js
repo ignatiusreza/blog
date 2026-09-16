@@ -1,101 +1,94 @@
 /**
  * Implement Gatsby's Node APIs in this file.
  *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+// Articles live at src/pages/articles/<year>/<month>/<day>/<slug>.md and are
+// published at /articles/<slug>; everything else (draft, now) is slug-only.
+const STANDALONE_PAGE = /^\/(draft|now)\/$/
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
+  if (node.internal.type !== 'MarkdownRemark') return
+
   const { createNodeField } = actions
+  const filePath = createFilePath({ node, getNode, basePath: 'articles' })
 
-  if (node.internal.type === 'MarkdownRemark') {
-    const path = createFilePath({ node, getNode, basePath: 'articles' })
-
-    if (/^\/(draft|now)\/$/.test(path)) {
-      createNodeField({ node, name: 'slug', value: path.split('/')[1] })
-    } else {
-      const [_, year, month, day, slug] = path.split('/')
-      const date = `${year}-${month}-${day}`
-
-      createNodeField({ node, name: 'date', value: date })
-      createNodeField({ node, name: 'slug', value: slug })
-      createNodeField({ node, name: 'path', value: `/articles/${slug}` })
-    }
+  if (STANDALONE_PAGE.test(filePath)) {
+    createNodeField({ node, name: 'slug', value: filePath.split('/')[1] })
+    return
   }
+
+  const [, year, month, day, slug] = filePath.split('/')
+
+  createNodeField({ node, name: 'date', value: `${year}-${month}-${day}` })
+  createNodeField({ node, name: 'slug', value: slug })
+  createNodeField({ node, name: 'path', value: `/articles/${slug}` })
 }
 
-exports.createPages = params =>
-  Promise.all([createArticles(params), createNow(params)])
+exports.createPages = async params => {
+  await Promise.all([createArticles(params), createNow(params)])
+}
 
-function createArticles({ actions, graphql }) {
-  const { createPage } = actions
-
-  const Article = path.resolve('src/templates/article.js')
-
-  return graphql(`
-    {
+async function createArticles({ actions, graphql, reporter }) {
+  const result = await graphql(`
+    query CreateArticles {
       allMarkdownRemark(
         filter: { fields: { date: { ne: null } } }
-        sort: { order: DESC, fields: fields___date }
+        sort: { fields: { date: DESC } }
       ) {
-        edges {
-          node {
-            fields {
-              path
-              slug
-            }
+        nodes {
+          fields {
+            path
+            slug
           }
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+  `)
 
-    const { edges } = result.data.allMarkdownRemark
+  if (result.errors) {
+    reporter.panicOnBuild('Failed to query articles', result.errors)
+    return
+  }
 
-    edges.forEach(({ node }, index) => {
-      const prevNode = edges[index + 1]
-      const nextNode = edges[index - 1]
-      const context = {
+  const { nodes } = result.data.allMarkdownRemark
+
+  nodes.forEach((node, index) => {
+    actions.createPage({
+      path: node.fields.path,
+      component: path.resolve('src/templates/article.js'),
+      context: {
         slug: node.fields.slug,
-        prevSlug: prevNode && prevNode.node.fields.slug,
-        nextSlug: nextNode && nextNode.node.fields.slug,
-      }
-
-      createPage({ path: node.fields.path, component: Article, context })
+        prevSlug: nodes[index + 1]?.fields.slug,
+        nextSlug: nodes[index - 1]?.fields.slug,
+      },
     })
   })
 }
 
-function createNow({ actions, graphql }) {
-  const { createPage } = actions
-
-  const Now = path.resolve('src/templates/now.js')
-
-  return graphql(`
-    {
+async function createNow({ actions, graphql, reporter }) {
+  const result = await graphql(`
+    query CreateNow {
       markdownRemark(fields: { slug: { eq: "now" } }) {
         fields {
-          path
           slug
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+  `)
 
-    const { fields } = result.data.markdownRemark
+  if (result.errors) {
+    reporter.panicOnBuild('Failed to query the now page', result.errors)
+    return
+  }
 
-    const context = {
-      slug: fields.slug,
-    }
-
-    createPage({ path: '/now', component: Now, context })
+  actions.createPage({
+    path: '/now',
+    component: path.resolve('src/templates/now.js'),
+    context: { slug: result.data.markdownRemark.fields.slug },
   })
 }

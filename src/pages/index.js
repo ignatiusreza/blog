@@ -1,41 +1,42 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 
 import Articles from '../components/articles'
 import Author from '../components/author'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 
 const Home = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords="blog, gatsby, rails, react" />
     <Author />
-    <Articles articles={data.allMarkdownRemark.edges} />
+    <Articles articles={data.allMarkdownRemark.nodes} />
   </Layout>
 )
 
 export default Home
 
-// Get all markdown data, in descending order by date, and grab the id, excerpt, slug, date, and title
+export const Head = ({ location }) => (
+  <Seo
+    title="Home"
+    keywords="blog, gatsby, rails, react"
+    pathname={location.pathname}
+  />
+)
+
 export const pageQuery = graphql`
-  query {
+  query Home {
     allMarkdownRemark(
       filter: { fields: { date: { ne: null } } }
-      sort: { order: DESC, fields: fields___date }
+      sort: { fields: { date: DESC } }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          fields {
-            date
-            path
-            slug
-          }
-          frontmatter {
-            title
-            description
-          }
+      nodes {
+        id
+        fields {
+          date
+          path
+        }
+        frontmatter {
+          title
+          description
         }
       }
     }

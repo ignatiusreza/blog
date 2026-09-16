@@ -1,57 +1,72 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^2.19.32",
-    "gatsby-image": "^2.2.43",
-    "gatsby-plugin-feed": "^2.3.28",
-    "gatsby-plugin-google-analytics": "^2.1.37",
-    "gatsby-plugin-manifest": "^2.2.44",
-    "gatsby-plugin-offline": "^3.0.37",
-    "gatsby-plugin-postcss": "^2.1.21",
-    "gatsby-plugin-purgecss": "^4.0.1",
-    "gatsby-plugin-react-helmet": "^3.1.23",
-    "gatsby-plugin-sharp": "^2.4.7",
-    "gatsby-remark-emoji": "^0.0.3",
-    "gatsby-remark-external-links": "^0.0.4",
-    "gatsby-remark-prismjs": "^3.3.33",
-    "gatsby-source-filesystem": "^2.1.50",
-    "gatsby-transformer-remark": "^2.6.55",
-    "gatsby-transformer-sharp": "^2.3.17",
-    "js-cookie": "^2.2.1",
-    "postcss-import": "^12.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "prismjs": "^1.19.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-helmet": "^5.2.1",
-    "react-switch": "^5.0.1",
-    "tailwindcss": "^1.2.0"
-  },
-  "devDependencies": {
-    "prettier": "^1.19.1"
-  },
+  "description": "A Rather Perpendicular View — the personal blog/playground of Ignatius Reza",
+  "version": "1.0.0",
+  "author": "Ignatius Reza",
+  "license": "MIT",
   "keywords": [
+    "blog",
     "gatsby"
   ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  "engines": {
+    "node": ">=20.0.0 <26"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ignatiusreza/blog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ignatiusreza/blog/issues"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "test": "npm run lint && npm run format:check"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "gatsby": "^5.16.1",
+    "gatsby-plugin-feed": "^5.16.0",
+    "gatsby-plugin-google-gtag": "^5.16.0",
+    "gatsby-plugin-image": "^3.16.0",
+    "gatsby-plugin-postcss": "^6.16.0",
+    "gatsby-plugin-sharp": "^5.16.0",
+    "gatsby-remark-prismjs": "^7.16.0",
+    "gatsby-source-filesystem": "^5.16.0",
+    "gatsby-transformer-remark": "^6.16.0",
+    "gatsby-transformer-sharp": "^5.16.0",
+    "postcss": "^8.5.28",
+    "prismjs": "^1.30.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-switch": "^7.1.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.7"
+  },
+  "allowScripts": {
+    "lmdb": true,
+    "@parcel/watcher": true,
+    "core-js": true,
+    "core-js-pure": true,
+    "es5-ext": true,
+    "gatsby": true,
+    "gatsby-cli": true,
+    "msgpackr-extract": true,
+    "sharp": true
   }
 }

@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 
-import SiteContext from './context'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import ThemeSwitcher from './theme_switcher'
 
 const Header = () => {
-  const { title } = useContext(SiteContext)
+  const { title } = useSiteMetadata()
 
   return (
     <header className="header">

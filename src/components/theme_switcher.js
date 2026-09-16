@@ -1,29 +1,24 @@
-import React, { useContext } from 'react';
-import Switch from 'react-switch';
-import Cookies from 'js-cookie';
+import Switch from 'react-switch'
 
-import SiteContext from './context';
+import useTheme from '../hooks/use-theme'
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useContext(SiteContext);
-  const onChange = () => {
-    const updatedTheme = theme === 'dark' ? 'light' : 'dark';
+  const [theme, setTheme] = useTheme()
 
-    Cookies.set('theme', updatedTheme, { expires: 365 });
-    setTheme(updatedTheme);
-  };
+  if (!theme) return <div className="switch-placeholder" aria-hidden="true" />
 
   return (
     <Switch
-      onChange={onChange}
+      onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="switch"
       checked={theme === 'dark'}
       checkedIcon={<>🌙</>}
       uncheckedIcon={<>🌞</>}
       onColor="#718096"
       offColor="#000"
+      aria-label="Toggle dark mode"
     />
-  );
-};
+  )
+}
 
-export default ThemeSwitcher;
+export default ThemeSwitcher
