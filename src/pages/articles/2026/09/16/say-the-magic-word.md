@@ -8,7 +8,8 @@ tags: hci, ux, ai, history
 
 ```text
 West of House
-You are standing in an open field west of a white house, with a boarded front door.
+You are standing in an open field west of a white house,
+with a boarded front door.
 There is a small mailbox here.
 
 >
@@ -181,8 +182,9 @@ The shift now underway isn't that we've memorised more magic words. It's that th
 ```text
 > swing on the rope
 
-You grab the rope and kick off from the ledge, swinging across the chasm
-in a long arc. You land, slightly winded, on the far side.
+You grab the rope and kick off from the ledge, swinging
+across the chasm in a long arc. You land, slightly winded,
+on the far side.
 
 >
 ```

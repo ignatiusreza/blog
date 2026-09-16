@@ -10,3 +10,10 @@
 /* Left unlayered on purpose: the syntax theme has to win over the `pre` and
    `code` rules in components.css, exactly as it did before cascade layers. */
 @import 'prismjs/themes/prism-tomorrow.css';
+
+/* Plain-text blocks are terminal transcripts — prose that reads fine wrapped,
+   and wrapping beats a scrollbar on a phone. Real code keeps its lines intact.
+   Has to sit after the syntax theme, which is unlayered and would win. */
+.article-content .language-text {
+  white-space: pre-wrap;
+}
