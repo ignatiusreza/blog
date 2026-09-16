@@ -11,6 +11,21 @@ const { createFilePath } = require('gatsby-source-filesystem')
 // published at /articles/<slug>; everything else (draft, now) is slug-only.
 const STANDALONE_PAGE = /^\/(draft|now)\/$/
 
+// Gatsby's built-in dev-server linting still passes eslintrc-era options
+// (useEslintrc, rulePaths, resolvePluginsRelativeTo) that ESLint 9 removed, so
+// it fails the develop bundle outright. `npm run lint` covers us instead.
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+  if (!stage.startsWith('develop')) return
+
+  const config = getConfig()
+
+  config.plugins = config.plugins.filter(
+    plugin => plugin.constructor.name !== 'ESLintWebpackPlugin'
+  )
+
+  actions.replaceWebpackConfig(config)
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type !== 'MarkdownRemark') return
 
