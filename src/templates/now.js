@@ -1,21 +1,14 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 
 import Author from '../components/author'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 
 const NowTemplate = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
-      <SEO
-        title={frontmatter.title}
-        description={frontmatter.description}
-        keywords={frontmatter.keywords}
-      />
-
       <section className="article flex-wrap">
         <h1 className="article-title text-3xl md:text-4xl md:-mt-px">
           {frontmatter.title}
@@ -34,9 +27,18 @@ const NowTemplate = ({ data }) => {
 
 export default NowTemplate
 
+export const Head = ({ data: { markdownRemark }, location }) => (
+  <Seo
+    title={markdownRemark.frontmatter.title}
+    description={markdownRemark.frontmatter.description}
+    keywords={markdownRemark.frontmatter.keywords}
+    pathname={location.pathname}
+  />
+)
+
 export const pageQuery = graphql`
-  query {
-    markdownRemark(fields: { slug: { eq: "now" } }) {
+  query Now($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title

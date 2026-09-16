@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 const months = {
   '01': 'Jan',
   '02': 'Feb',
@@ -11,28 +8,28 @@ const months = {
   '07': 'Jul',
   '08': 'Aug',
   '09': 'Sep',
-  '10': 'Oct',
-  '11': 'Nov',
-  '12': 'Dec',
-};
+  10: 'Oct',
+  11: 'Nov',
+  12: 'Dec',
+}
 
-const Date = ({ date }) => {
-  const [year, month, day] = date.split('-');
+const ArticleDate = ({ date }) => {
+  const [year, month, day] = date.split('-')
 
   return (
-    <div className="font-mono whitespace-no-wrap leading-none">
-      <div className="inline-block align-middle font-bold text-3xl md:text-4xl">
+    <time
+      dateTime={date}
+      className="block font-mono whitespace-nowrap leading-none"
+    >
+      <span className="inline-block align-middle font-bold text-3xl md:text-4xl">
         {day}
-      </div>
-      <div className="inline-block align-middle text-sm md:text-base rotate-90 -ml-1 -mt-1">
+      </span>
+      <span className="inline-block align-middle text-sm md:text-base rotate-90 -ml-1 -mt-1">
         {months[month]}
-      </div>
-      <div className="text-sm md:text-base ml-px">{year}</div>
-    </div>
-  );
-};
-Date.propTypes = {
-  date: PropTypes.string,
-};
+      </span>
+      <span className="block text-sm md:text-base ml-px">{year}</span>
+    </time>
+  )
+}
 
-export default Date;
+export default ArticleDate

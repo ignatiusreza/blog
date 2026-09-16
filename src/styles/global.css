@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 detects sources automatically; being explicit keeps it working
+   however Gatsby happens to invoke PostCSS. */
+@source '../**/*.{js,jsx}';
+
+@import './base.css';
+@import './components.css';
+
+/* Left unlayered on purpose: the syntax theme has to win over the `pre` and
+   `code` rules in components.css, exactly as it did before cascade layers. */
+@import 'prismjs/themes/prism-tomorrow.css';

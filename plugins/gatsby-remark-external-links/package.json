@@ -1,0 +1,7 @@
+{
+  "name": "gatsby-remark-external-links",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "description": "Open links that leave the site in a new tab"
+}
