@@ -4,6 +4,7 @@ keywords: hci, user interface, ux, text adventure, zork, parser, gui, natural la
 description: |
   Computers asked us to talk to them in 1977, then spent forty years building interfaces to make sure we couldn't. This is the story of the detour.
 tags: hci, ux, ai, history
+image: /og/say-the-magic-word.png
 ---
 
 ```text

@@ -11,6 +11,16 @@ const { createFilePath } = require('gatsby-source-filesystem')
 // published at /articles/<slug>; everything else (draft, now) is slug-only.
 const STANDALONE_PAGE = /^\/(draft|now)\/$/
 
+// Frontmatter types are inferred from whatever the articles happen to set, so
+// an optional field has to be declared or the query breaks the day none do.
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemarkFrontmatter {
+      image: String
+    }
+  `)
+}
+
 // Gatsby's built-in dev-server linting still passes eslintrc-era options
 // (useEslintrc, rulePaths, resolvePluginsRelativeTo) that ESLint 9 removed, so
 // it fails the develop bundle outright. `npm run lint` covers us instead.

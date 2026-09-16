@@ -55,6 +55,7 @@ export const Head = ({ data: { page }, location }) => (
     title={page.frontmatter.title}
     description={page.frontmatter.description}
     keywords={page.frontmatter.keywords}
+    image={page.frontmatter.image}
     pathname={location.pathname}
   />
 )
@@ -70,6 +71,7 @@ export const pageQuery = graphql`
         title
         description
         keywords
+        image
       }
     }
     prevPage: markdownRemark(fields: { slug: { eq: $prevSlug } }) {
