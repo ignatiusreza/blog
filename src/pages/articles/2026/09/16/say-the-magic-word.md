@@ -79,7 +79,9 @@ That's the trick. The menu bar is a vocabulary list. The toolbar is a vocabulary
 
 Ben Shneiderman named the principle **direct manipulation** in the early 1980s: continuous representation of objects, physical actions instead of typed syntax, immediately visible results. Don Norman gave us **affordances** — the handle that tells you to pull, the button that tells you to press. Jakob Nielsen's heuristics enshrined **recognition over recall**: don't make the user remember the command, _show_ them the command.
 
-Every one of those principles is, underneath, the same engineering decision: the computer cannot understand what the human means, so let us make it impossible for the human to mean anything the computer doesn't already understand.
+Every one of those principles is, underneath, the same engineering decision:
+
+> The computer cannot understand what the human means — so let us make it impossible for the human to mean anything the computer doesn't already understand.
 
 This is not a criticism. It was the correct call, and it worked spectacularly. It put computers in front of a billion people who would never have learned a command vocabulary. Four decades of interface craft — Fitts's law, information architecture, progressive disclosure, responsive layout, the entire discipline of UX — is the accumulated art of making a constrained vocabulary feel spacious.
 
@@ -102,9 +104,16 @@ A blinking cursor. Type what you want. Every mature graphical application eventu
 
 Meanwhile the command line never went anywhere. Unix pipes remained the most expressive general-purpose interface ever built, and the reason non-specialists never adopted them is not that they're bad — it's that they invert the burden. The CLI is _maximally_ expressive on the condition that **you** learn **its** language, exactly, character by character, with no forgiveness. `git checkout` versus `git switch`. Guess-the-verb, wearing a suit.
 
-So the real situation, for four decades, was this. The graphical interface showed you its vocabulary; the command line made you memorise it. The GUI was bounded by whatever fits on screen; the CLI was very nearly unlimited. The GUI made the machine adapt once, in advance; the CLI made the human adapt, continuously.
+So the real situation, for four decades, was this:
 
-And on the one thing that actually matters — handling a person who knows what they want but not what it is called, who can only manage _"I sort of want…"_ — both forks answered exactly the same way. No.
+|                            | Graphical interface     | Command line            |
+| -------------------------- | ----------------------- | ----------------------- |
+| Vocabulary                 | Shown to you            | Memorised by you        |
+| Expressiveness             | Bounded by the screen   | Very nearly unlimited   |
+| Who adapts                 | The machine, in advance | The human, continuously |
+| Handles _"I sort of want…"_ | No                      | No                      |
+
+Both sides of the fork ended at the same wall. Neither could handle a person who knew what they wanted but not what it was called.
 
 ### The False Dawns
 
