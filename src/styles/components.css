@@ -141,8 +141,8 @@
       background: color-mix(in oklab, currentColor 20%, transparent);
     }
 
-    & .language-text {
-      @apply px-2;
-    }
+    /* No padding rule for code blocks here: the syntax theme is unlayered, so
+       it already wins on both `pre` and inline `code`. Setting it anyway only
+       reached the `code` inside a `pre`, indenting the first line. */
   }
 }
