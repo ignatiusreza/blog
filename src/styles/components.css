@@ -70,6 +70,17 @@
       @apply font-mono mb-6;
     }
 
+    /* Pull quotes carry an argument rather than cite a source, so they get a
+       rule and extra size instead of the usual indent-and-shrink treatment. */
+    & blockquote {
+      @apply my-8 pl-5 text-xl leading-relaxed italic;
+      border-left: 2px solid color-mix(in oklab, currentColor 30%, transparent);
+
+      & p:last-child {
+        @apply mb-0;
+      }
+    }
+
     & ul {
       @apply list-disc;
     }
@@ -90,6 +101,44 @@
       & p:first-child + p {
         @apply -mt-6;
       }
+    }
+
+    /* Markdown gives a table no wrapper element, so the table itself has to be
+       the scroll container or a wide one drags the whole page sideways. */
+    & table {
+      @apply mb-6 text-left;
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      overflow-x: auto;
+      border-collapse: collapse;
+    }
+
+    & th,
+    & td {
+      @apply px-3 py-2 align-top;
+      border-bottom: 1px solid
+        color-mix(in oklab, currentColor 15%, transparent);
+    }
+
+    & th {
+      @apply font-bold;
+    }
+
+    & thead th {
+      border-bottom: 2px solid
+        color-mix(in oklab, currentColor 35%, transparent);
+    }
+
+    /* Keep the first column flush with the body text above it. */
+    & tr > :first-child {
+      @apply pl-0;
+    }
+
+    & hr {
+      @apply my-10 border-0;
+      height: 1px;
+      background: color-mix(in oklab, currentColor 20%, transparent);
     }
 
     & .language-text {
