@@ -17,7 +17,7 @@ That single fact is why, when I first learned to program, I wanted to make games
 
 I was lucky enough to have a computer at home when I was about ten, which was not something to take for granted at the time. And like a lot of people who ended up in this industry, what I did with it was play games.
 
-Old text adventures, where you typed what you wanted and hoped the parser agreed — the kind I wrote about [last week](/articles/say-the-magic-word). _Krusty's Fun House_, herding rats into traps. _Day of the Tentacle_, which is still one of the funniest things I've ever played. An old _Ghostbusters_ game. Sitting with the game manual open on my lap, hunting for the password it wanted before it would let me in.
+Old text adventures, where you typed what you wanted and hoped the parser agreed — the kind I wrote about [last week](/articles/say-the-magic-word). _Krusty's Fun House_, herding rats into traps. _Day of the Tentacle_, which is still one of the funniest things I've ever played. Activision's _Ghostbusters_, frantically hammering a button to haul the team up flight after flight of stairs with ghosts closing in. Sitting with the game manual open on my lap, hunting for the password it wanted before it would let me in.
 
 Somewhere in there I decided that the computer was where I wanted to be. I didn't know yet what that meant. I just knew that this box could make worlds, and I wanted to be on the side that made them.
 
