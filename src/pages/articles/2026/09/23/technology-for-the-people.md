@@ -25,9 +25,11 @@ The "how" arrived by accident in middle school. The school was trialling a compu
 
 I didn't play them so much as take them apart. I found the number that controlled how big the explosions were and made them enormous. I made the snake impossibly fast. I changed the gravity and watched the bananas sail off the top of the screen and never come back. Change a number, run it, see what happens, change it again. Nobody told me to. It was the most fun I'd ever had with a computer, and it was the first time I understood that software was something a person made — and so could be made _differently_.
 
-By college the direction felt obvious. I majored in computer science and gravitated to everything near games: computer graphics, game development, image processing, computer vision. The plan was a master's degree in game development abroad. Then reality: the programmes I wanted were far too expensive, and no university at home offered anything like them.
+By college the direction felt obvious. I majored in computer science and gravitated to everything near games: computer graphics, game development, image processing, computer vision. My final project, in 2007, was an implementation of [active shape models](https://github.com/ignatiusreza/active-shape-model) — a technique for teaching a computer to find the outline of an object, typically a face, in a photo, a video or a live webcam feed. C++ was my favourite language back then. The plan was a master's degree in game development abroad. Then reality: the programmes I wanted were far too expensive, and no university at home offered anything like them.
 
 So I went to work, and work turned out to be web and application development — the earliest posts on this blog are about strong parameters in Rails 4 and pre-loading SQLite databases on Android. The kind of software people use because they need to get something done, not because it's Saturday and they're bored.
+
+The itch never quite went away. In 2013 I wrote a [CHIP-8 emulator](https://github.com/ignatiusreza/chip8-cplusplus) in C++, partly to relearn the language I'd left behind for Ruby, and partly just to find out what it felt like to make one. It ran ROMs from the command line; the README promised "no fancy GUI yet", and yet is still going.
 
 I never stopped caring about the things that pulled me towards games in the first place: the visuals, the feel of an interface, whether a thing is actually _right_ for the person using it. And I picked up a question from those years that never really left: **would anyone use this if they didn't have to?**
 
@@ -112,6 +114,12 @@ This is the part that has changed, and changed fast.
 
 With agentic coding tools, the cost of turning an idea into something that _works_ has collapsed. Not a mockup. Not a clickable storyboard. A working prototype — real data, real interactions, running in a browser — built in an afternoon by describing what you want and iterating on it in conversation. I've been working this way for a while now, and the thing that surprised me most was not the speed of any single prototype. It was how it changed which ideas I bothered to try. It felt a lot like fiddling with the numbers in _Gorillas_ again: change something, run it, see what happens.
 
+The clearest example I have is from last week. I had an idea for a game: an endless runner you control with your voice, whose levels are generated from whatever music is playing around you. **Shout to jump. Hold the note to glide. Growl low to slide.** The terrain and obstacles are laid down one beat at a time, so they arrive under your feet on the beat. It runs in a browser and on Android and iOS from one codebase, with tests, and with notes explaining each architecture decision.
+
+I built it in a day.
+
+Not a polished commercial game. But a real, working thing I could play, hand to someone else, and learn from — which is exactly what a prototype is for. Ten-year-old me, with the game manual open, would have lost it. The hard part of that day wasn't the code. It was deciding what would actually be fun, playing it, and changing my mind.
+
 When a prototype costs three weeks, you build the one you're most confident in and defend it. When it costs an hour, you build three different approaches before lunch and put all of them in front of someone after. You try the weird one. You try the one your colleague suggested that you privately thought was wrong. Sometimes it _is_ wrong, and you find out in an hour instead of arguing about it for a month. Sometimes it isn't.
 
 That changes where testing happens in the life of a product. The expensive question — _is this the right approach at all?_ — can now be asked early, with real users and something real in their hands, instead of being settled by whoever was most persuasive in the planning meeting. The A/B test at the end of the pipeline stops being the only place evidence enters the process.
@@ -146,6 +154,6 @@ Game designers have a test that I think every piece of software should have to p
 
 Most software will never be fun, and it doesn't need to be. Nobody needs their tax return to be delightful. But the underlying question transfers perfectly: _if nobody was making you use this, would you come back?_ Not because your family is there, not because your manager mandated it, not because the cancel button is hidden — but because it genuinely made the thing you were trying to do easier, and you walked away a little better off than you started.
 
-I never did become a game developer. But I think the thing I wanted as a kid, making bananas explode in QBasic, wasn't really about games. It was about software that people would choose — technology that exists for the people using it, rather than the people selling it.
+I never did become a game developer, not professionally, anyway. A game built in a day doesn't change that. But I think the thing I wanted as a kid, making bananas explode in QBasic, wasn't really about games. It was about software that people would choose — technology that exists for the people using it, rather than the people selling it.
 
 For a long time, building that kind of software was hard, and we had good excuses. We're about to run out of them. I think that's a very good thing.
