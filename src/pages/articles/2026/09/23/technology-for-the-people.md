@@ -15,15 +15,25 @@ That single fact is why, when I first learned to program, I wanted to make games
 
 ### The Kid Who Wanted to Make Games
 
-Like a lot of people who ended up in this industry, I came to programming through games. Not through any grand theory of software — just the plain observation that games were the only programs anyone around me actually _liked_.
+I was lucky enough to have a computer at home when I was about ten, which was not something to take for granted at the time. And like a lot of people who ended up in this industry, what I did with it was play games.
 
-Everything else was something that happened _to_ people. The system at the office that everybody complained about. The form you had to fill in on a website that clearly hated you. The accounting package someone had bought years ago that everyone now worked around. These programs had users the way a tax office has visitors: not by choice, and not happily.
+Old text adventures, where you typed what you wanted and hoped the parser agreed — the kind I wrote about [last week](/articles/say-the-magic-word). _Krusty's Fun House_, herding rats into traps. _Day of the Tentacle_, which is still one of the funniest things I've ever played. An old _Ghostbusters_ game. Sitting with the game manual open on my lap, hunting for the password it wanted before it would let me in.
 
-Games were different in a way that felt almost moral to me at the time. A game had to earn its place. There was no procurement department, no mandate from above, no "this is the system we use here". If it wasn't fun, it simply didn't get played. The feedback was brutal, immediate, and completely honest.
+Somewhere in there I decided that the computer was where I wanted to be. I didn't know yet what that meant. I just knew that this box could make worlds, and I wanted to be on the side that made them.
 
-I didn't end up in game development. Life went the way it usually goes: I learned to build web applications, then mobile ones — the earliest posts on this blog are about strong parameters in Rails 4 and pre-loading SQLite databases on Android. The kind of software that people use because they need to get something done, not because it's Saturday and they're bored.
+The "how" arrived by accident in middle school. The school was trialling a computer class as an extracurricular, and I signed up without really knowing what it was about. It turned out to be QBasic. At some point the teacher handed out copies of two games: _Nibbles_, the snake game, and _Gorillas_, where two gorillas stand on a city skyline and lob exploding bananas at each other.
 
-But the question I picked up from games never really left: **would anyone use this if they didn't have to?**
+I didn't play them so much as take them apart. I found the number that controlled how big the explosions were and made them enormous. I made the snake impossibly fast. I changed the gravity and watched the bananas sail off the top of the screen and never come back. Change a number, run it, see what happens, change it again. Nobody told me to. It was the most fun I'd ever had with a computer, and it was the first time I understood that software was something a person made — and so could be made _differently_.
+
+By college the direction felt obvious. I majored in computer science and gravitated to everything near games: computer graphics, game development, image processing, computer vision. The plan was a master's degree in game development abroad. Then reality: the programmes I wanted were far too expensive, and no university at home offered anything like them.
+
+So I went to work, and work turned out to be web and application development — the earliest posts on this blog are about strong parameters in Rails 4 and pre-loading SQLite databases on Android. The kind of software people use because they need to get something done, not because it's Saturday and they're bored.
+
+I never stopped caring about the things that pulled me towards games in the first place: the visuals, the feel of an interface, whether a thing is actually _right_ for the person using it. And I picked up a question from those years that never really left: **would anyone use this if they didn't have to?**
+
+Because games had taught me something the rest of software mostly hadn't. Everything else on a computer was something that happened _to_ people. The system at the office that everybody complained about. The form on a website that clearly hated you. The accounting package someone had bought years ago that everyone now worked around. These programs had users the way a tax office has visitors: not by choice, and not happily.
+
+Games were different in a way that felt almost moral to me. A game had to earn its place. There was no procurement department, no mandate from above, no "this is the system we use here". If it wasn't fun, it simply didn't get played. The feedback was brutal, immediate, and completely honest.
 
 ### Chosen and Imposed
 
@@ -100,7 +110,7 @@ The big ideas, the ones that might have made people's lives meaningfully better,
 
 This is the part that has changed, and changed fast.
 
-With agentic coding tools, the cost of turning an idea into something that _works_ has collapsed. Not a mockup. Not a clickable storyboard. A working prototype — real data, real interactions, running in a browser — built in an afternoon by describing what you want and iterating on it in conversation. I've been working this way for a while now, and the thing that surprised me most was not the speed of any single prototype. It was how it changed which ideas I bothered to try.
+With agentic coding tools, the cost of turning an idea into something that _works_ has collapsed. Not a mockup. Not a clickable storyboard. A working prototype — real data, real interactions, running in a browser — built in an afternoon by describing what you want and iterating on it in conversation. I've been working this way for a while now, and the thing that surprised me most was not the speed of any single prototype. It was how it changed which ideas I bothered to try. It felt a lot like fiddling with the numbers in _Gorillas_ again: change something, run it, see what happens.
 
 When a prototype costs three weeks, you build the one you're most confident in and defend it. When it costs an hour, you build three different approaches before lunch and put all of them in front of someone after. You try the weird one. You try the one your colleague suggested that you privately thought was wrong. Sometimes it _is_ wrong, and you find out in an hour instead of arguing about it for a month. Sometimes it isn't.
 
@@ -136,6 +146,6 @@ Game designers have a test that I think every piece of software should have to p
 
 Most software will never be fun, and it doesn't need to be. Nobody needs their tax return to be delightful. But the underlying question transfers perfectly: _if nobody was making you use this, would you come back?_ Not because your family is there, not because your manager mandated it, not because the cancel button is hidden — but because it genuinely made the thing you were trying to do easier, and you walked away a little better off than you started.
 
-I never did become a game developer. But I think the thing I wanted as a kid wasn't really about games. It was about software that people would choose — technology that exists for the people using it, rather than the people selling it.
+I never did become a game developer. But I think the thing I wanted as a kid, making bananas explode in QBasic, wasn't really about games. It was about software that people would choose — technology that exists for the people using it, rather than the people selling it.
 
 For a long time, building that kind of software was hard, and we had good excuses. We're about to run out of them. I think that's a very good thing.
