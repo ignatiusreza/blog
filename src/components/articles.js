@@ -5,7 +5,7 @@ import ArticleDate from './date'
 const Articles = ({ articles }) => (
   <div>
     {articles.map(article => (
-      <div key={article.id} className="article">
+      <div key={article.id} className="article article-summary">
         <div className="article-date">
           <ArticleDate date={article.fields.date} />
         </div>
