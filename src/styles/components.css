@@ -30,6 +30,18 @@
     @apply flex justify-between items-center;
   }
 
+  /* Side projects ride along with the "Find me" links rather than interrupting
+     the writing, so each one keeps its name and its reason together and the
+     list wraps between entries. max-w-full lets an entry break internally
+     rather than widen the column on a narrow phone. */
+  .playgrounds li {
+    @apply inline-block max-w-full ml-2;
+  }
+
+  .playgrounds .reason {
+    color: color-mix(in oklab, currentColor 65%, transparent);
+  }
+
   .article {
     @apply flex mb-10;
   }
@@ -85,6 +97,23 @@
 
   .article-excerpt {
     @apply leading-relaxed;
+  }
+
+  /* The game wants as much width as the column has and sizes itself to the box
+     it is given, so fix the ratio and let it fill. */
+  .embed {
+    @apply mb-3 w-full overflow-hidden rounded;
+    aspect-ratio: 16 / 10;
+    background: color-mix(in oklab, currentColor 8%, transparent);
+
+    & iframe {
+      @apply block h-full w-full border-0;
+    }
+  }
+
+  .embed-note {
+    @apply text-sm leading-relaxed;
+    color: color-mix(in oklab, currentColor 70%, transparent);
   }
 
   .article-content {

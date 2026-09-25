@@ -114,6 +114,8 @@ That changes where testing happens in the life of a product. The expensive quest
 
 And it changes who can take part. A designer can build the thing they've been describing. A domain expert who knows exactly what their workflow should look like can sketch it into existence rather than filing a requirements document and waiting a quarter. The people closest to the problem get to show, not just tell.
 
+I should admit where this essay came from, because I did the thing I'm describing. [Voice Runner](/projects/voice-runner) is an endless runner whose stages are generated from whatever music is playing in the room, and that you steer by shouting at it. It needs beat detection, a level generator locked to the tempo so the obstacles land on the beat rather than near it, and a microphone that has to pick your voice out of the same music it is listening to. That is an idea I would once have sketched, estimated at a season of evenings, and never started. Turning an idea into something _playable_ is now an afternoon away — so it exists, and you can play it in the browser.
+
 ### The Floor Is Rising
 
 There's a second-order effect here that I think matters even more.
