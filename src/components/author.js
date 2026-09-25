@@ -23,7 +23,7 @@ const Author = () => (
       </p>
 
       <div>
-        Find me:
+        Find me:{' '}
         <ul className="inline">
           <li className="inline ml-2">
             <a
@@ -57,6 +57,25 @@ const Author = () => (
           </li>
         </ul>
       </div>
+
+      <aside>
+        Playgrounds:{' '}
+        <ul className="inline">
+          <li className="inline ml-2">
+            <a
+              href="https://github.com/ignatiusreza/chip8"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              chip8
+            </a>
+          </li>
+          <li className="inline ml-2">
+            <Link to="/projects/voice-runner">voice-runner</Link>
+          </li>
+        </ul>
+      </aside>
     </div>
   </div>
 )
