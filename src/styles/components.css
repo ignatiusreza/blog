@@ -42,30 +42,37 @@
     }
   }
 
-  /* In the index the date is set larger than the title it labels, so the column
-     reads right when their cap heights line up rather than their baselines.
-     text-box trims each box to the cap edge, which makes flex-start do that
-     exactly at both sizes. The article page overrides this with items-baseline:
-     there the two are the same size and share a line. */
-  @supports (text-box-trim: trim-start) {
-    .article {
-      @apply items-start;
-    }
+  /* In the index the date is set larger than the title it labels, so the title
+     reads right centred on the digits rather than sharing their baseline.
+     text-box trims both down to their cap boxes, and pulling each up by half
+     its own cap puts the two centres on the row's top edge — exact at either
+     size, with no per-breakpoint nudge. The padding holds the halves that now
+     hang above that edge. */
+  @supports (text-box-trim: trim-both) {
+    .article-summary {
+      @apply items-start pt-3;
 
-    .article-date time > :first-child {
-      @apply inline-block;
-      text-box: trim-start cap alphabetic;
-    }
+      & .article-date time > :first-child,
+      & .article-title h2 {
+        text-box: trim-both cap alphabetic;
+        margin-top: -0.5cap;
+      }
 
-    .article-title,
-    .article-title h2 {
-      text-box: trim-start cap alphabetic;
+      & .article-date time > :first-child {
+        @apply block;
+      }
+
+      /* Trimming the title to its cap box takes its descender leading with it,
+         so the summary below needs a gap of its own. */
+      & .article-excerpt {
+        @apply mt-3;
+      }
     }
   }
 
-  /* Without text-box there is no cap edge to align to, so keep the nudge that
+  /* Without text-box there is no cap box to centre on, so keep the nudge that
      got closest before. */
-  @supports not (text-box-trim: trim-start) {
+  @supports not (text-box-trim: trim-both) {
     .article-date {
       @apply mt-1;
     }
