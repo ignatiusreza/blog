@@ -11,7 +11,7 @@ const ArticleTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <section className="article flex-wrap">
+      <section className="article flex-wrap items-baseline">
         <div className="article-date">
           <ArticleDate date={fields.date} />
         </div>

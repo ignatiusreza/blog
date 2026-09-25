@@ -30,10 +30,8 @@
     @apply flex justify-between items-center;
   }
 
-  /* Baseline alignment, not matched top margins: the date and the title are set
-     at different sizes and have to sit on one line. */
   .article {
-    @apply flex items-baseline mb-10;
+    @apply flex mb-10;
   }
 
   .article-date {
@@ -41,6 +39,35 @@
 
     & + div {
       @apply ml-1 md:ml-4;
+    }
+  }
+
+  /* In the index the date is set larger than the title it labels, so the column
+     reads right when their cap heights line up rather than their baselines.
+     text-box trims each box to the cap edge, which makes flex-start do that
+     exactly at both sizes. The article page overrides this with items-baseline:
+     there the two are the same size and share a line. */
+  @supports (text-box-trim: trim-start) {
+    .article {
+      @apply items-start;
+    }
+
+    .article-date time > :first-child {
+      @apply inline-block;
+      text-box: trim-start cap alphabetic;
+    }
+
+    .article-title,
+    .article-title h2 {
+      text-box: trim-start cap alphabetic;
+    }
+  }
+
+  /* Without text-box there is no cap edge to align to, so keep the nudge that
+     got closest before. */
+  @supports not (text-box-trim: trim-start) {
+    .article-date {
+      @apply mt-1;
     }
   }
 
