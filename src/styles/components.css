@@ -30,18 +30,6 @@
     @apply flex justify-between items-center;
   }
 
-  /* Side projects ride along with the "Find me" links rather than interrupting
-     the writing, so each one keeps its name and its reason together and the
-     list wraps between entries. max-w-full lets an entry break internally
-     rather than widen the column on a narrow phone. */
-  .playgrounds li {
-    @apply inline-block max-w-full ml-2;
-  }
-
-  .playgrounds .reason {
-    color: color-mix(in oklab, currentColor 65%, transparent);
-  }
-
   .article {
     @apply flex mb-10;
   }

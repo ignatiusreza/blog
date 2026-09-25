@@ -12,7 +12,7 @@ const Author = () => (
       placeholder="blurred"
       className="w-10 md:w-16 mt-1 md:mt-0 flex-none rounded-full"
     />
-    <div className="ml-5 min-w-0">
+    <div className="ml-5">
       <div>
         <div className="font-bold text-xl sm:inline">Ignatius Reza</div>
         <span className="hidden sm:inline"> - </span>
@@ -58,10 +58,10 @@ const Author = () => (
         </ul>
       </div>
 
-      <aside className="playgrounds">
+      <aside>
         Playgrounds:{' '}
         <ul className="inline">
-          <li>
+          <li className="inline ml-2">
             <a
               href="https://github.com/ignatiusreza/chip8"
               className="underline"
@@ -70,11 +70,9 @@ const Author = () => (
             >
               chip8
             </a>
-            <span className="reason"> — learning languages</span>
           </li>
-          <li>
+          <li className="inline ml-2">
             <Link to="/projects/voice-runner">voice-runner</Link>
-            <span className="reason"> — agentic coding, playable</span>
           </li>
         </ul>
       </aside>
