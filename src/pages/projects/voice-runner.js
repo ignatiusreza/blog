@@ -20,20 +20,26 @@ const VoiceRunner = () => (
           </strong>
         </p>
 
-        {/* Cross-origin, so the microphone has to be delegated explicitly;
-            without it the game silently falls back to the keyboard. */}
+        {/* Permissions are not inherited across origins, so each one the game
+            needs has to be named here. display-capture is what lets it offer
+            "Tab or system audio" at all: without it the source registry finds
+            no getDisplayMedia, skips that source silently, and drops to the
+            microphone without ever asking to share audio. */}
         <div className="embed">
           <iframe
             src={GAME_URL}
             title="Voice Runner"
-            allow="microphone; autoplay; fullscreen"
+            allow="microphone; display-capture; autoplay; fullscreen"
             loading="lazy"
           />
         </div>
 
         <p className="embed-note">
-          Grant the microphone and shout at it, or play it from the keyboard —
-          space to jump, down to slide. It runs better with the whole screen:{' '}
+          Pick <em>Tab or system audio</em> and tick “share tab audio” to build
+          the stage out of whatever you are playing, then shout at it. Keyboard
+          works too — space to jump, down to slide. Some browsers refuse to
+          share audio from inside a frame at all, so if it drops to the
+          microphone,{' '}
           <a href={GAME_URL} target="_blank" rel="noopener noreferrer">
             open it on its own
           </a>
