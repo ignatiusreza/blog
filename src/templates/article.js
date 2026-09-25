@@ -12,11 +12,11 @@ const ArticleTemplate = ({ data }) => {
   return (
     <Layout>
       <section className="article flex-wrap">
-        <div className="article-date mt-2">
+        <div className="article-date">
           <ArticleDate date={fields.date} />
         </div>
 
-        <h1 className="article-title text-3xl md:text-4xl md:-mt-px">
+        <h1 className="article-title text-3xl md:text-4xl">
           {frontmatter.title}
         </h1>
 

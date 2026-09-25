@@ -30,12 +30,14 @@
     @apply flex justify-between items-center;
   }
 
+  /* Baseline alignment, not matched top margins: the date and the title are set
+     at different sizes and have to sit on one line. */
   .article {
-    @apply flex mb-10;
+    @apply flex items-baseline mb-10;
   }
 
   .article-date {
-    @apply block mt-1;
+    @apply block;
 
     & + div {
       @apply ml-1 md:ml-4;

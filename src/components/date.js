@@ -21,11 +21,15 @@ const ArticleDate = ({ date }) => {
       dateTime={date}
       className="block font-mono whitespace-nowrap leading-none"
     >
-      <span className="inline-block align-middle font-bold text-3xl md:text-4xl">
+      {/* The day is the only baseline-aligned box on this line, so the date
+          block reports the digits' baseline to the flex row and lines up with
+          the title. The month rides inside the day span to centre on the
+          digits' own metrics instead of a fixed pixel nudge. */}
+      <span className="font-bold text-3xl md:text-4xl">
         {day}
-      </span>
-      <span className="inline-block align-middle text-sm md:text-base rotate-90 -ml-1 -mt-1">
-        {months[month]}
+        <span className="inline-block align-middle rotate-90 -ml-1 text-sm font-normal md:text-base">
+          {months[month]}
+        </span>
       </span>
       <span className="block text-sm md:text-base ml-px">{year}</span>
     </time>
