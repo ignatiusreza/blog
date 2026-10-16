@@ -23,7 +23,13 @@ That cheaper path from idea to prototype finally got me to build [Voice Runner](
 
 ### Writing again
 
-After more than a decade of silence, this blog is alive again. Lately I've been writing about how we talk to computers ([Say the Magic Word](/articles/say-the-magic-word)), about building software people actually want to use ([Technology for the People](/articles/technology-for-the-people)), and about where the work goes once typing code stops being the job ([Above and Below the Code](/articles/above-and-below-the-code)).
+After more than a decade of silence, this blog is alive again. All of that has me thinking hard again about what it means to be an engineer, and to build a product. When writing the code stops being the hard part, what's left is deciding what's worth building at all. Building the right thing matters more than ever.
+
+That's the thread running through what I've been writing lately:
+
+- [Say the Magic Word](/articles/say-the-magic-word): computers asked us to talk to them in 1977, then spent forty years building interfaces that made sure we couldn't. Now we finally can, which means rethinking what an interface is for.
+- [Technology for the People](/articles/technology-for-the-people): nobody has ever been forced to play Tetris. Most software doesn't have that luxury, and the industry has gotten good at not noticing whether people actually want what we ship. Cheap prototypes might make us notice.
+- [Above and Below the Code](/articles/above-and-below-the-code): as typing code shrinks, the job moves to the work around it, above the code (knowing what to build and why) and beneath it (infrastructure, data and security).
 
 ### Should I write a book or two?
 
