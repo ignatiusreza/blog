@@ -9,7 +9,7 @@ _Last updated: October 2026._
 
 ### Still in Berlin, still working on Laboperator
 
-Six years on, I'm still working on [Laboperator](https://www.laboperator.com/), though the company around it has changed. I joined it at Labforward. Since then it has moved to Xavo, and today the team is part of LabAthena. The mission hasn't changed: a plug & play platform that connects all of a lab's instruments, collects their data automatically and automates the devices themselves, so scientists can spend their time on science.
+Six years on, I'm still working on [Laboperator](https://www.laboperator.com/), though the company around it has changed. I joined it at Labforward. Since then it has moved to Xavo, and today the team is part of [LabAthena](https://www.labathena.com/). The mission hasn't changed: a plug & play platform that connects all of a lab's instruments, collects their data automatically and automates the devices themselves, so scientists can spend their time on science.
 
 Most of my days are spent on the device side of that: the connectors and drivers that talk to the instruments, and keeping that fleet modern and healthy. I'm still not a scientist, and I still find it exciting that something I helped build might sit somewhere in the path of a discovery.
 
