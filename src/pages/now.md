@@ -11,7 +11,9 @@ _Last updated: October 2026._
 
 Six years on, I'm still working on [Laboperator](https://www.laboperator.com/), though the company around it has changed. I joined it at Labforward. Since then it has moved to Xavo, and today the team is part of [LabAthena](https://labathena.com/). The mission hasn't changed: a plug & play platform that connects all of a lab's instruments, collects their data automatically and automates the devices themselves, so scientists can spend their time on science.
 
-Most of my days are spent on the device side of that: the connectors and drivers that talk to the instruments, and keeping that fleet modern and healthy. I'm still not a scientist, and I still find it exciting that something I helped build might sit somewhere in the path of a discovery.
+These days I'm the CTO and CISO, which means pushing the technology forward and keeping it secure while doing it. Underneath the titles, the work is the same thing that's always pulled me in: sitting where people and technology meet. Listening to the scientists and lab teams who use what we build, digging past the first description of a problem to the one that's really there, and finding the solution that doesn't just fix it but lets them do more than before. I still write code, and still find the instruments, the data and the edge cases where they meet more interesting than any org chart.
+
+I'm still not a scientist, and I still find it exciting that something I helped build might sit somewhere in the path of a discovery.
 
 ### Building with agentic coding tools
 
@@ -23,7 +25,7 @@ That cheaper path from idea to prototype finally got me to build [Voice Runner](
 
 ### Writing again
 
-After more than a decade of silence, this blog is alive again. All of that has me thinking hard again about what it means to be an engineer, and to build a product. When writing the code stops being the hard part, what's left is deciding what's worth building at all. Building the right thing matters more than ever.
+After more than a decade of silence, this blog is alive again. All of that has me thinking hard again about what it means to be an engineer, and to build a product. When writing the code stops being the hard part, what's left is deciding what's worth building at all. Building the right thing matters more than ever. Ideas are cheap. They only become valuable once they're in people's hands, and they're only worth putting there if they solve something real.
 
 That's the thread running through what I've been writing lately:
 
