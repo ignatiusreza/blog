@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 
 import Author from '../../components/author'
 import Layout from '../../components/layout'
@@ -7,17 +7,38 @@ import Seo from '../../components/seo'
 const GAME_URL = 'https://chip8.erauqssidlroweht.com'
 const REPO_URL = 'https://github.com/ignatiusreza/chip8'
 
+// Where the frame points: the game, or the shared game in ?watch=<id>, which is what the
+// game's share links open when it is played here. It is only known in the browser, so
+// the frame is added once the page is running there (null before, also while
+// hydrating), and loads once.
+const gameSrc = () => {
+  const watch = new URLSearchParams(window.location.search).get('watch')
+  return watch && /^[A-Za-z0-9]{1,32}$/.test(watch)
+    ? `${GAME_URL}/watch/${watch}`
+    : GAME_URL
+}
+const noUpdates = () => () => {}
+const useGameSrc = () => useSyncExternalStore(noUpdates, gameSrc, () => null)
+
 // The game reports how tall it is, so the frame fits it without scrolling; until then
-// the frame is square. Only messages from the game itself count.
+// the frame is square. It also asks where it is embedded, so its share links open this
+// page. Only messages from the game itself count.
 const useGameHeight = () => {
   const [height, setHeight] = useState(null)
   useEffect(() => {
     const origin = new URL(GAME_URL).origin
     const onMessage = event => {
       const { type, height } = event.data ?? {}
-      if (event.origin !== origin || type !== 'chip8-height') return
-      if (Number.isFinite(height))
+      if (event.origin !== origin) return
+      if (type === 'chip8-ready') {
+        const { origin: here, pathname } = window.location
+        event.source.postMessage(
+          { type: 'chip8-host', url: here + pathname },
+          origin
+        )
+      } else if (type === 'chip8-height' && Number.isFinite(height)) {
         setHeight(Math.min(Math.max(height, 200), 3000))
+      }
     }
     window.addEventListener('message', onMessage)
     return () => window.removeEventListener('message', onMessage)
@@ -26,6 +47,7 @@ const useGameHeight = () => {
 }
 
 const Chip8 = () => {
+  const src = useGameSrc()
   const height = useGameHeight()
   return (
     <Layout>
@@ -49,23 +71,35 @@ const Chip8 = () => {
             className="embed embed-square"
             style={height ? { aspectRatio: 'auto', height } : undefined}
           >
-            <iframe
-              src={GAME_URL}
-              title="CHIP-8"
-              allow="autoplay; clipboard-write; fullscreen"
-              loading="lazy"
-            />
+            {src && (
+              <iframe
+                src={src}
+                title="CHIP-8"
+                allow="autoplay; clipboard-write; fullscreen"
+              />
+            )}
           </div>
 
-          <p className="embed-note">
-            Press <em>Share live</em> for a link anyone can open to watch you
-            play, as it happens. The keyboard only reaches the game once it has
-            been clicked; if it doesn&rsquo;t,{' '}
-            <a href={GAME_URL} target="_blank" rel="noopener noreferrer">
-              open it on its own
-            </a>
-            .
-          </p>
+          {src?.includes('/watch/') ? (
+            <p className="embed-note">
+              You&rsquo;re watching someone play, live, from a link they shared.{' '}
+              <a href="/projects/chip8/">Play a game yourself</a>.
+            </p>
+          ) : (
+            <p className="embed-note">
+              Press <em>Share live</em> for a link to this page that anyone can
+              open to watch you play, as it happens. The keyboard only reaches
+              the game once it has been clicked; if it doesn&rsquo;t,{' '}
+              <a
+                href={src ?? GAME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                open it on its own
+              </a>
+              .
+            </p>
+          )}
 
           <h3>How it works</h3>
 
