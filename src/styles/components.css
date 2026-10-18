@@ -99,6 +99,12 @@
     }
   }
 
+  /* the CHIP-8 page stacks its screen above how to play at this width; it then
+     reports its height, which replaces this */
+  .embed-square {
+    aspect-ratio: 1 / 1;
+  }
+
   .embed-note {
     @apply text-sm leading-relaxed;
     color: color-mix(in oklab, currentColor 70%, transparent);
