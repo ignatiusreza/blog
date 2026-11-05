@@ -5,15 +5,23 @@ description: What I'm doing now
 tags:
 ---
 
-_Last updated: October 2026._
+_Last updated: November 2026._
 
-### Still in Berlin, still working on Laboperator
+### Wrapping up seven years on Laboperator
 
-Six years on, I'm still working on [Laboperator](https://www.laboperator.com/), though the company around it has changed. I joined it at Labforward. Since then it has moved to Xavo, and today the team is part of [LabAthena](https://labathena.com/). The mission hasn't changed: a plug & play platform that connects all of a lab's instruments, collects their data automatically and automates the devices themselves, so scientists can spend their time on science.
+I'm in my last stretch at [LabAthena](https://labathena.com/), and with it seven years on [Laboperator](https://www.laboperator.com/) — a plug & play platform that connects all of a lab's instruments, collects their data automatically and automates the devices themselves, so scientists can spend their time on science.
 
-These days I'm the CTO and CISO, which means pushing the technology forward and keeping it secure while doing it. Underneath the titles, the work is the same thing that's always pulled me in: sitting where people and technology meet. Listening to the scientists and lab teams who use what we build, digging past the first description of a problem to the one that's really there, and finding the solution that doesn't just fix it but lets them do more than before. I still write code, and still find the instruments, the data and the edge cases where they meet more interesting than any org chart.
+I joined that team at Labforward, stayed with it through Xavo, and ended up as CTO and CISO at LabAthena. Seven years is long enough to watch a product grow up: the instruments, the protocols, the data model, the handful of edge cases that turned out to be the whole problem. I'm leaving it in good hands, and I'm grateful to the people I built it with — the engineers who took the hard parts seriously, and the scientists and lab teams who kept telling us, patiently and repeatedly, what they actually needed.
 
 I'm still not a scientist, and I still find it exciting that something I helped build might sit somewhere in the path of a discovery.
+
+### Figuring out what's next
+
+I genuinely don't know yet, and I'm giving myself room to not know for a bit.
+
+What I do know is which part of the work I keep coming back to: sitting where people and technology meet. Listening to the people who use what I build, digging past the first description of a problem to the one that's really there, and finding the solution that doesn't just fix it but lets them do more than before. Everything else I've enjoyed — the systems, the data, the security, the code itself — has been in service of that.
+
+So I'm looking, slowly and with a fairly open mind. If you're working on something where that sounds useful, I'd like to hear about it — [LinkedIn](https://id.linkedin.com/in/ignatiusreza) is the easiest way to reach me.
 
 ### Building with agentic coding tools
 
@@ -21,7 +29,9 @@ Most of the code I've shipped this year, I didn't type. I described it, read it,
 
 ### Making things for fun again
 
-That cheaper path from idea to prototype finally got me to build [Voice Runner](/projects/voice-runner), an endless runner whose stages are generated from whatever music is playing around you, and which you steer by shouting at it. It had been sitting in my head for a year. More small playgrounds like it are likely to show up here.
+That cheaper path from idea to prototype finally got me to build [Voice Runner](/projects/voice-runner), an endless runner whose stages are generated from whatever music is playing around you, and which you steer by shouting at it. It had been sitting in my head for a year.
+
+Since then I've gone back to an older itch and rebuilt my [CHIP-8 emulator](/projects/chip8) — the same machine implemented in C++, Rust and Go, and compiled to WebAssembly so you can play it right here. More small playgrounds like these are likely to show up, and I expect to have more time for them shortly.
 
 ### Writing again
 
